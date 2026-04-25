@@ -1,0 +1,25 @@
+{
+	"name": "persian-phone-number-normalizer",
+	"version": "0.2.0",
+	"description": "Simple yet powerful package for normalizing Persian phone numbers.",
+	"type": "module",
+	"module": "./dist/index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"sideEffects": false,
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "bun build ./index.ts --outdir dist --target node",
+		"check": "biome check",
+		"lint": "biome check --write"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@biomejs/biome": "2.4.10"
+	},
+	"peerDependencies": {
+		"typescript": "^6.0.3"
+	}
+}
