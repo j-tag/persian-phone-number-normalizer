@@ -1,7 +1,18 @@
 {
 	"name": "persian-phone-number-normalizer",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Simple yet powerful package for normalizing Persian phone numbers.",
+	"keywords": [
+		"persian",
+		"phone",
+		"number",
+		"mobile",
+		"tel",
+		"persian-phone",
+		"persian-number",
+		"iranian-number",
+		"iranian-phone"
+	],
 	"type": "module",
 	"module": "./dist/index.js",
 	"main": "./dist/index.js",
