@@ -1,6 +1,6 @@
 {
 	"name": "persian-phone-number-normalizer",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Simple yet powerful package for normalizing Persian phone numbers.",
 	"keywords": [
 		"persian",
