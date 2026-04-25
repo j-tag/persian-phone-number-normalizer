@@ -12,10 +12,10 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           registry-url: https://registry.npmjs.org/
-      - run: bun check
       - run: bun install
+      - run: bun check
       - run: bun test --concurrent --randomize
-      - run: bun run build      
+      - run: bun run build
       - run: tsc
       - run: bun pm pack
       - run: bun publish
