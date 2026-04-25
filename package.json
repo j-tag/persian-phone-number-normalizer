@@ -2,6 +2,11 @@
 	"name": "persian-phone-number-normalizer",
 	"version": "0.4.0",
 	"description": "Simple yet powerful package for normalizing Persian phone numbers.",
+	"repository": "https://github.com/j-tag/persian-phone-number-normalizer.git",
+	"homepage": "https://hesam.org/en",
+	"bugs": {
+		"url": "https://github.com/j-tag/persian-phone-number-normalizer/issues"
+	},
 	"keywords": [
 		"persian",
 		"phone",
