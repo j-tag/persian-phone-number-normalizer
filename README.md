@@ -91,13 +91,13 @@ tsc
 Lint without applying:
 
 ```bash
-bun check
+bun lint
 ```
 
 Lint with applying safe fixes and formatting:
 
 ```bash
-bun lint
+bun format
 ```
 
 Run unit tests:
