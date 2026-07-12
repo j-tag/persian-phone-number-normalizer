@@ -17,46 +17,46 @@ export function normalizeNumber(
 	input: string,
 	options?: { forceEnDigits: boolean; validate: boolean },
 ): string | false {
-	const enDigits = (() => {
-		if (options?.forceEnDigits === false) {
-			return input
-		}
+  const enDigits = (() => {
+    if (options?.forceEnDigits === false) {
+      return input
+    }
 
-		return faToEnDigits(input)
-	})()
+    return faToEnDigits(input)
+  })()
 
-	const normalized = (() => {
-		if (enDigits.startsWith("+98")) {
-			return enDigits
-		} else if (enDigits.startsWith("098")) {
-			return `+${enDigits.substring(1)}`
-		} else if (enDigits.startsWith("98")) {
-			return `+${enDigits}`
-		} else if (enDigits.startsWith("09")) {
-			return `+98${enDigits.substring(1)}`
-		} else if (enDigits.startsWith("9")) {
-			return `+98${enDigits}`
-		}
-		return false
-	})()
+  const normalized = (() => {
+    if (enDigits.startsWith("+98")) {
+      return enDigits
+    } else if (enDigits.startsWith("098")) {
+      return `+${enDigits.substring(1)}`
+    } else if (enDigits.startsWith("98")) {
+      return `+${enDigits}`
+    } else if (enDigits.startsWith("09")) {
+      return `+98${enDigits.substring(1)}`
+    } else if (enDigits.startsWith("9")) {
+      return `+98${enDigits}`
+    }
+    return false
+  })()
 
-	if (normalized === false) {
-		return false
-	}
+  if (normalized === false) {
+    return false
+  }
 
-	if (options?.validate === false) {
-		return normalized
-	}
+  if (options?.validate === false) {
+    return normalized
+  }
 
-	/**
-	 * At this point we have the normalized number so there is no need to normalize again
-	 * inside the validator function.
-	 */
-	if (isValidPersianPhoneNumber(normalized, { normalize: false })) {
-		return normalized
-	}
+  /**
+   * At this point we have the normalized number so there is no need to normalize again
+   * inside the validator function.
+   */
+  if (isValidPersianPhoneNumber(normalized, { normalize: false })) {
+    return normalized
+  }
 
-	return false
+  return false
 }
 
 /**
@@ -73,22 +73,22 @@ export function normalizeNumber(
  * @param options
  */
 export function isValidPersianPhoneNumber(
-	input: string,
-	options?: { normalize: boolean },
+  input: string,
+  options?: { normalize: boolean },
 ): boolean {
-	const phoneNumber = (() =>
-		options?.normalize === false ? input : normalizeNumber(input))()
-	if (phoneNumber === false) {
-		return false
-	}
-	return (
-		phoneNumber.startsWith("+989") &&
-		phoneNumber.length === 13 &&
-		/**
-		 * This will make sure something like "123 456" is not passed successfully.
-		 */
-		`+${parseInt(phoneNumber, 10)}` === phoneNumber
-	)
+  const phoneNumber = (() =>
+    options?.normalize === false ? input : normalizeNumber(input))()
+  if (phoneNumber === false) {
+    return false
+  }
+  return (
+    phoneNumber.startsWith("+989") &&
+    phoneNumber.length === 13 &&
+    /**
+     * This will make sure something like "123 456" is not passed successfully.
+     */
+    `+${parseInt(phoneNumber, 10)}` === phoneNumber
+  )
 }
 
 /**
@@ -96,16 +96,16 @@ export function isValidPersianPhoneNumber(
  * @param input The phone number.
  */
 export function faToEnDigits(input: string): string {
-	const persian = "۰۱۲۳۴۵۶۷۸۹"
-	const arabic = "٠١٢٣٤٥٦٧٨٩"
+  const persian = "۰۱۲۳۴۵۶۷۸۹"
+  const arabic = "٠١٢٣٤٥٦٧٨٩"
 
-	return input.replace(/[۰-۹٠-٩]/g, (char) => {
-		const pIndex = persian.indexOf(char)
-		if (pIndex !== -1) return String(pIndex)
+  return input.replace(/[۰-۹٠-٩]/g, (char) => {
+    const pIndex = persian.indexOf(char)
+    if (pIndex !== -1) return String(pIndex)
 
-		const aIndex = arabic.indexOf(char)
-		if (aIndex !== -1) return String(aIndex)
+    const aIndex = arabic.indexOf(char)
+    if (aIndex !== -1) return String(aIndex)
 
-		return char
-	})
+    return char
+  })
 }
