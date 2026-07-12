@@ -24,12 +24,12 @@ jobs:
           path: |
             ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-          
+
       - name: Install dependencies
         run: bun install
 
       - name: Run linter
-        run: bun check
+        run: bun lint
 
       - name: Run tests
         run: bun test --concurrent --randomize

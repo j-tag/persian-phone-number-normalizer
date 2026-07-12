@@ -26,7 +26,7 @@ jobs:
           node-version: 24
 
       - run: bun install
-      - run: bun check
+      - run: bun lint
       - run: bun test --concurrent --randomize
       - run: bun run build
       - run: tsc

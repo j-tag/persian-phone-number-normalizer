@@ -1,41 +1,41 @@
 {
-	"name": "persian-phone-number-normalizer",
-	"version": "1.0.0",
-	"description": "Simple yet powerful package for normalizing Persian phone numbers.",
-	"repository": "https://github.com/j-tag/persian-phone-number-normalizer.git",
-	"homepage": "https://hesam.org/en",
-	"bugs": {
-		"url": "https://github.com/j-tag/persian-phone-number-normalizer/issues"
-	},
-	"keywords": [
-		"persian",
-		"phone",
-		"number",
-		"mobile",
-		"tel",
-		"persian-phone",
-		"persian-number",
-		"iranian-number",
-		"iranian-phone"
-	],
-	"type": "module",
-	"module": "./dist/index.js",
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"sideEffects": false,
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "bun build ./index.ts --outdir dist --target node",
-		"check": "biome check",
-		"lint": "biome check --write"
-	},
-	"devDependencies": {
-		"@types/bun": "latest",
-		"@biomejs/biome": "2.4.10"
-	},
-	"peerDependencies": {
-		"typescript": "^6.0.3"
-	}
+  "name": "persian-phone-number-normalizer",
+  "version": "1.1.0",
+  "description": "Simple yet powerful package for normalizing Persian phone numbers.",
+  "repository": "https://github.com/j-tag/persian-phone-number-normalizer.git",
+  "homepage": "https://hesam.org/en",
+  "bugs": {
+    "url": "https://github.com/j-tag/persian-phone-number-normalizer/issues"
+  },
+  "keywords": [
+    "persian",
+    "phone",
+    "number",
+    "mobile",
+    "tel",
+    "persian-phone",
+    "persian-number",
+    "iranian-number",
+    "iranian-phone"
+  ],
+  "type": "module",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./index.ts --outdir dist --target node",
+    "lint": "biome check",
+    "format": "biome check --write"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@biomejs/biome": "2.4.10"
+  },
+  "peerDependencies": {
+    "typescript": "^6.0.3"
+  }
 }
