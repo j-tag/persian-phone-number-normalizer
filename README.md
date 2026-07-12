@@ -47,6 +47,13 @@ const n = '091۲345'
 const normalized = normalizeNumber(n, { forceEnDigits: false, validate: false }) // +9891۲345
 ```
 
+You can change the prefix:
+
+```javascript
+const n = '9۱۲۳456789'
+expect(normalizeNumber(n, { prefix: '09' })).toBe('09123456789')
+```
+
 Separate functions for other use cases:
 
 ```javascript
