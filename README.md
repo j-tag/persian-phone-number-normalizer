@@ -40,18 +40,32 @@ const n = '0912345'
 const normalized = normalizeNumber(n) // false
 ```
 
-You can opt out of English digit conversion or phone number validation:
+You can opt out of English digit conversion:
+
+```javascript
+const n = '091۲3457769'
+const normalized = normalizeNumber(n, { forceEnDigits: false }) // +9891۲3457769
+```
+
+You can opt out of phone number validation:
 
 ```javascript
 const n = '091۲345'
-const normalized = normalizeNumber(n, { forceEnDigits: false, validate: false }) // +9891۲345
+const normalized = normalizeNumber(n, { validate: false }) // +98912345
 ```
 
 You can change the prefix:
 
 ```javascript
 const n = '9۱۲۳456789'
-expect(normalizeNumber(n, { prefix: '09' })).toBe('09123456789')
+const normalized = normalizeNumber(n, { prefix: '09' }) // 09123456789
+```
+
+Mix and match options:
+
+```javascript
+const n = '9۱۲۳456'
+const normalized = normalizeNumber(n, { forceEnDigits: true, validate: false, prefix: '09' }) // 09123456
 ```
 
 Separate functions for other use cases:
