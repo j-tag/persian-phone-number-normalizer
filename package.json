@@ -1,6 +1,6 @@
 {
   "name": "persian-phone-number-normalizer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple yet powerful package for normalizing Persian phone numbers.",
   "license": "MIT",
   "repository": "https://github.com/j-tag/persian-phone-number-normalizer.git",
