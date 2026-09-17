@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test"
 import {
+  enToFaDigits,
   faToEnDigits,
   isValidPersianPhoneNumber,
   normalizeNumber,
@@ -9,6 +10,19 @@ test("Should convert Persian and Arabic numbers to English", () => {
   expect(faToEnDigits("۹۱234٥6789")).toBe("9123456789")
   expect(faToEnDigits("Hello ۹۱234٥6789")).toBe("Hello 9123456789")
   expect(faToEnDigits("سلام ۹۱234٥6789")).toBe("سلام 9123456789")
+})
+
+test("Should convert all English digits to Persian", () => {
+  expect(enToFaDigits("0123456789")).toBe("۰۱۲۳۴۵۶۷۸۹")
+  expect(enToFaDigits("+989123456789")).toBe("+۹۸۹۱۲۳۴۵۶۷۸۹")
+})
+
+test("Should preserve other characters when converting English digits", () => {
+  expect(enToFaDigits("Hello 012-345 (6789)!")).toBe("Hello ۰۱۲-۳۴۵ (۶۷۸۹)!")
+  expect(enToFaDigits("سلام ۹۱234٥6789")).toBe("سلام ۹۱۲۳۴٥۶۷۸۹")
+  expect(enToFaDigits("۰۱۲۳۴۵۶۷۸۹ ٠١٢٣٤٥٦٧٨٩")).toBe("۰۱۲۳۴۵۶۷۸۹ ٠١٢٣٤٥٦٧٨٩")
+  expect(enToFaDigits("Hello سلام")).toBe("Hello سلام")
+  expect(enToFaDigits("")).toBe("")
 })
 
 test("Should validate numbers correctly", () => {
