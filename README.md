@@ -71,12 +71,15 @@ const normalized = normalizeNumber(n, { forceEnDigits: true, validate: false, pr
 Separate functions for other use cases:
 
 ```javascript
-import { faToEnDigits, isValidPersianPhoneNumber } from 'persian-phone-number-normalizer'
+import { enToFaDigits, faToEnDigits, isValidPersianPhoneNumber } from 'persian-phone-number-normalizer'
 // or
-const { faToEnDigits, isValidPersianPhoneNumber } = require("persian-phone-number-normalizer")
+const { enToFaDigits, faToEnDigits, isValidPersianPhoneNumber } = require("persian-phone-number-normalizer")
 
 const input = '۱۲۳۴'
 const pin = faToEnDigits(input) // 1234
+
+const englishPin = '1234'
+const persianPin = enToFaDigits(englishPin) // ۱۲۳۴
 
 const phoneNumber = '۰۹۱۲۳۴۵۶۷۸۹'
 const isValid = isValidPersianPhoneNumber(phoneNumber) // true
