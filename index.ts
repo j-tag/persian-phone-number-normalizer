@@ -133,3 +133,13 @@ export function faToEnDigits(input: string): string {
     return char
   })
 }
+
+/**
+ * Convert English digits to Persian counterparts, leaving other characters unchanged.
+ * @param input The text to convert.
+ */
+export function enToFaDigits(input: string): string {
+  const persian = "۰۱۲۳۴۵۶۷۸۹"
+
+  return input.replace(/[0-9]/g, (char) => persian.charAt(Number(char)))
+}
